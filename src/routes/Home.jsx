@@ -17,7 +17,6 @@ class Home extends React.Component {
     } = await axios.get('https://yts.mx/api/v2/list_movies.json?sort_by=rating');
     this.setState({ movies, isLoading: false });
   }
-
   componentDidMount() {
     this.getMovies();
   }

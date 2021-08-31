@@ -7,14 +7,39 @@
   margin-top:  100px;
   width: 100%;
   max-width: 400px;
-  font-weight: 300;
+  font-weight: 700;
+  font-size: 50px;
 }
 
-.about__container span:first-child {
+.about__container img {
+  width: 100%;
+}
+
+.about__container p {
+  text-align: center;
+  margin: 0;
+}
+
+.about__container .about__info {
+  padding: 20px 0;
   font-size: 20px;
+  box-sizing: border-box;
+  border: solid 2px #8a8d8a;
+  border-radius: 10px;
+  margin: 40px 0;
+  font-weight: 400;
+  background-color: #cacaca;
+  
 }
 
-.about__container span:last-child {
-  display: block;
-  margin-top: 10px;
+@media screen and (max-width: 1090px) {
+  .about__container {
+    margin-top: 40px;
+    max-width: 300px;
+    font-size: 40px;
+  }
+
+  .about__container .about__info {
+    font-size: 15px;
+  }
 }
