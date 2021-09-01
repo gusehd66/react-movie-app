@@ -11,6 +11,11 @@
   font-size: 50px;
 }
 
+.about__container:hover img {
+  transform: rotateY(720deg);
+  transition: 3s;
+}
+
 .about__container img {
   width: 100%;
 }
@@ -29,7 +34,10 @@
   margin: 40px 0;
   font-weight: 400;
   background-color: #cacaca;
-  
+}
+
+.about__container .about__info p:hover {
+  color: #fff;
 }
 
 @media screen and (max-width: 1090px) {

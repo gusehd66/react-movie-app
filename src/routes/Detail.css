@@ -45,6 +45,10 @@
   font-weight: bold;
 }
 
+.movie__details__data .movie__details__genres li:hover {
+  transform: translateY(-3px);
+}
+
 .movie__details__data .movie__details__summary {
   font-size: 30px;
   color: grey;
