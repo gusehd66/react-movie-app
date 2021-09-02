@@ -1,0 +1,14 @@
+.loader_disk span {
+  font-size: 50px;
+  animation: blink 2s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
