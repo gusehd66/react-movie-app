@@ -1,59 +1,57 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Movie from '../component/Movie';
 import './Home.css';
 import Loader from '../component/Loader';
 
-class Home extends React.Component {
-  state = {
+function Home() {
+  const [state, setState] = useState({
     isLoading: true,
-    movies: [],
-  };
+    movies: []
+  })
 
-  getMovies = async () => {
+  const getMovies = async () => {
     const {
       data: {
         data: { movies },
       }
     } = await axios.get('https://yts.mx/api/v2/list_movies.json?sort_by=rating');
-    this.setState({ movies, isLoading: false });
+    setState({ movies, isLoading: false });
   }
-  componentDidMount() {
-    this.getMovies();
-  }
+  useEffect(() => {
+    getMovies();
+  }, []);
 
-  render() {
-    const { isLoading, movies } = this.state;
-
-    return (
-      <section className="container">
-        {isLoading ? (
-          <div className="loader">
-            <Loader />
-          </div>
-        ) : (
-          <div className="movies">
-            {
-              movies.map((movie) => {
-                return <Movie
-                  key={movie.id}
-                  id={movie.id}
-                  year={movie.year}
-                  title={movie.title}
-                  summary={movie.summary}
-                  poster={movie.medium_cover_image}
-                  genres={movie.genres}
-                  lgPoster={movie.large_cover_image}
-                  rating={movie.rating}
-                  runTime={movie.runtime}
-                />;
-              })
-            }
-          </div>
-        )}
-      </section>
-    )
-  }
+  const { isLoading, movies } = state;
+  console.log(state);
+  return (
+    <section className="container">
+      {isLoading ? (
+        <div className="loader">
+          <Loader />
+        </div>
+      ) : (
+        <div className="movies">
+          {
+            movies.map((movie) => {
+              return <Movie
+                key={movie.id}
+                id={movie.id}
+                year={movie.year}
+                title={movie.title}
+                summary={movie.summary}
+                poster={movie.medium_cover_image}
+                genres={movie.genres}
+                lgPoster={movie.large_cover_image}
+                rating={movie.rating}
+                runTime={movie.runtime}
+              />;
+            })
+          }
+        </div>
+      )}
+    </section>
+  )
 }
 
 export default Home;
