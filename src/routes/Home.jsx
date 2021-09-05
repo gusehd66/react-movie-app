@@ -5,28 +5,28 @@ import './Home.css';
 import Loader from '../component/Loader';
 
 function Home() {
-  const [state, setState] = useState({
-    isLoading: true,
-    movies: []
-  })
+  const [loading, setLoading] = useState(true);
+  const [movies, setMovies] = useState([]);
+  const [page, setPage] = useState(1);
 
   const getMovies = async () => {
     const {
       data: {
         data: { movies },
       }
-    } = await axios.get('https://yts.mx/api/v2/list_movies.json?sort_by=rating');
-    setState({ movies, isLoading: false });
+    } =
+      await axios.get(`https://yts.mx/api/v2/list_movies.json?limit=20&sort_by=download_count&page=${page}`);
+    setMovies(movies);
+    setLoading(false);
   }
+
   useEffect(() => {
     getMovies();
   }, []);
 
-  const { isLoading, movies } = state;
-  console.log(state);
   return (
     <section className="container">
-      {isLoading ? (
+      {loading ? (
         <div className="loader">
           <Loader />
         </div>
