@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Movie from '../component/Movie';
+import MovePage from '../component/Movepage'
 import './Home.css';
 import Loader from '../component/Loader';
 
 function Home() {
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
-  const [page, setPage] = useState(1);
 
-  const getMovies = async () => {
+  const getMovies = async (page) => {
     const {
       data: {
         data: { movies },
       }
     } =
-      await axios.get(`https://yts.mx/api/v2/list_movies.json?limit=20&sort_by=download_count&page=${page}`);
+      await axios.get(`https://yts.mx/api/v2/list_movies.json?limit=20&sort_by=download_count&page=1`);
     setMovies(movies);
     setLoading(false);
   }
@@ -23,6 +23,7 @@ function Home() {
   useEffect(() => {
     getMovies();
   }, []);
+
 
   return (
     <section className="container">
@@ -32,6 +33,7 @@ function Home() {
         </div>
       ) : (
         <div className="movies">
+          < MovePage />
           {
             movies.map((movie) => {
               return <Movie

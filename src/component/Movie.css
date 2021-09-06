@@ -52,3 +52,9 @@
   margin-right: 10px;
   font-size: 14px;
 }
+
+@media screen and (max-width:1090px) {
+  .movies .movie {
+    margin-top: 35px
+  }
+}
