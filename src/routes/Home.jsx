@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import PageContext from '../context/PageContext';
 import './Home.css'
 import axios from 'axios';
 import Loader from '../component/Loader';
