@@ -14,22 +14,6 @@
   font-weight: 300;
 }
 
-#preBtn {
-  position: absolute;
-  width: 100px;
-  height: 30px;
-  top: 20px;
-  right: 130px;
-}
-
-#nextBtn {
-  position: absolute;
-  width: 100px;
-  height: 30px;
-  top: 20px;
-  right: 15px;
-}
-
 .movies {
   display: grid;
   grid-template-columns: repeat(2, minmax(400px, 1fr));
@@ -37,6 +21,32 @@
   padding: 50px;
   width: 80%;
   padding-top: 80px;
+}
+
+.movies button {
+  position: absolute;
+  width: 100px;
+  height: 30px;
+  top: 20px;
+  border: none;
+  box-shadow: 0 13px 27px -5px rgba(50, 50, 93, .3), 0 8px 16px -8px rgba(0, 0, 0, .2), 0 -6px 16px -6px rgba(0, 0, 0, .1);
+  border-radius: 5px;
+  color: #0d0dff;
+  background-color: #fff;
+}
+
+#preBtn {
+  right: 130px;
+}
+
+#nextBtn {
+  right: 15px;
+}
+
+.movies button:hover {
+  cursor: pointer;
+  color: #eff3f7;
+  background-color: #0d0dff;
 }
 
 @media screen and (max-width: 1090px){

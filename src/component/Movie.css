@@ -55,6 +55,25 @@
 
 @media screen and (max-width:1090px) {
   .movies .movie {
-    margin-top: 35px
+    margin-top: 35px;
+    margin-bottom: 0;
+  }
+  .movies .movie:last-child{
+    margin-bottom: 95px;
+  }
+  .movies .movie .movie__data  {
+    max-width: 140px;
+    word-break:break-all;
+  }
+  .movies .movie .movie__data .movie__summary {
+    display: none;
+  }
+  .movies .movie .movie__data .movie__genres {
+    border-top: solid 1px #adaeb9;
+    border-bottom: solid 1px #adaeb9;
+    line-height: 18px;
+    padding: 10px 0;
+    margin-top: 15px;
+    color: #fdc000;
   }
 }
