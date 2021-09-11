@@ -5,10 +5,10 @@ import Loader from '../component/Loader';
 import Movie from '../component/Movie';
 
 function Home() {
-  const sessionPage = JSON.parse(sessionStorage.getItem('page'));
-  if (sessionPage === null) {
+  if (JSON.parse(sessionStorage.getItem('page') === null)) {
     sessionStorage.setItem('page', 1);
   };
+  const sessionPage = JSON.parse(sessionStorage.getItem('page'));
   const [page, setPage] = useState(sessionPage);
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
@@ -37,8 +37,11 @@ function Home() {
     if (page > 1) {
       setPage(page - 1);
     }
-
   }
+
+  useEffect(() => {
+    getMovies();
+  }, [page]);
 
   return (
     <section className="container">
