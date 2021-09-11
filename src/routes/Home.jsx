@@ -5,7 +5,11 @@ import Loader from '../component/Loader';
 import Movie from '../component/Movie';
 
 function Home() {
-  const [page, setPage] = useState(1);
+  const sessionPage = JSON.parse(sessionStorage.getItem('page'));
+  if (sessionPage === null) {
+    sessionStorage.setItem('page', 1);
+  };
+  const [page, setPage] = useState(sessionPage);
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
 
@@ -19,6 +23,7 @@ function Home() {
       await axios.get(`https://yts.mx/api/v2/list_movies.json?limit=20&sort_by=download_count&page=${page}`);
     setMovies(movies);
     setLoading(false);
+    sessionStorage.setItem('page', page);
   }
 
   useEffect(() => {

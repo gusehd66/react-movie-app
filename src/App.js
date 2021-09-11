@@ -6,9 +6,10 @@ import Navigation from './component/Navigation';
 import Detail from './routes/Detail';
 import Home from './routes/Home';
 
+sessionStorage.clear();
+
 function App() {
   return (
-
     <HashRouter basename={"./static"}>
       <Navigation />
       <Route exact path="/" component={Home} />
