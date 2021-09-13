@@ -22,8 +22,8 @@ function Home() {
     } =
       await axios.get(`https://yts.mx/api/v2/list_movies.json?limit=20&sort_by=download_count&page=${page}`);
     setMovies(movies);
-    setLoading(false);
     sessionStorage.setItem('page', page);
+    setLoading(false);
   }
 
   useEffect(() => {
@@ -33,6 +33,7 @@ function Home() {
   const nextPage = () => {
     setPage(page + 1);
   }
+
   const prePage = () => {
     if (page > 1) {
       setPage(page - 1);
